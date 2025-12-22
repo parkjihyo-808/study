@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 실습9 */
+        .btn {
+            width: 200px;
+            height: 100px;
+            pad: 10px 20px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.2);
+        }
+
+        /* 실습10 */
+          .icon {
+            width: 200px;
+            height: 100px;
+            pad: 10px 20px;
+            background-color: orange;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+            
+        }
+
+        .icon:hover {
+            transform: rotate(360deg);
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        실습9 버튼 키우기
+    </div>
+     <div class="icon">
+        실습10 버튼 360도회전, 배경색 변경
+    </div>
+</body>
+
+</html>
