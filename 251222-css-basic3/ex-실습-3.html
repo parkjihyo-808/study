@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box > span {
+        .box > span  {
             color: blue;
         }
-
+        .box > span > span  {
+            color: red;
+        }
         h3 + p {
             background-color: orange;
         }
@@ -16,13 +18,20 @@
 </head>
 <body>
     <div class="box">
-        <span>나: 자식 (Child)</span> <div>
-            <span>나: 손자 (Grandchild)</span> </div>
-        <span>나: 자식 (Child)</span> </div>
+    <span>나: 자식 (Child)</span>
+    <div>
+        <span>나: 손자 (Grandchild)</span>
+    </div>
+     <span>
+        <span>나: 손자2 (Grandchild)</span>
+    </span>
+    <br>
+    <span>나: 자식 (Child)</span>
+</div>
 
-    <h3>기준점 (Header)</h3>
-    <p>첫 번째 문단</p> 
-    <p>두 번째 문단</p>
-    <p>세 번째 문단</p>
+<h3>기준점 (Header)</h3>
+<p>첫 번째 문단</p>
+<p>두 번째 문단</p>
+<p>세 번째 문단</p>
 </body>
 </html>
