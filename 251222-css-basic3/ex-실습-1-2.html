@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li:nth-child(2) {
+            color: red;
+            font-weight: bold;
+        }
+
+         /* 지난 시간에 배운 애니메이션 효과 주기, 깜박이는 효과 */
+         @keyframes blink {
+            /* 완전히 보이는 상태 */
+            0% { opacity: 1;} 
+            /* 완전히 사라진 상태 */
+            50% { opacity: 0;} 
+            100% { opacity: 1;} 
+        }
+        
+        .new-product::before {
+            /* 반드시 content 내용이 필수 */
+            content: 'NEW! ';
+            color: red;
+            font-weight: bold;
+            border: 2px solid green;
+            background-color: aqua;
+            animation: blink 1s infinite;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <h2>실습1</h2>
+    <ul>
+        <li>1. 첫번째 아이템 (First Chile)</li>
+        <li>2. 두번째 아이템 (짝수번째: even)</li>
+        <li>3. 세번째 아이템 </li>
+        <li>4. 네번째 아이템 </li>
+        <li>5. 다섯번째 아이템 </li>
+    </ul>
+    <h2>실습2</h2>
+    <p class="new-product">아이폰 16</p>
+</body>
+</html>
