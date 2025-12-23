@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="liveInput" placeholder="실시간 따라쓰기 버전">
+    <h2 id="liveResultText">결과가 여기에 나옵니다.</h2>
+
+    <script>
+        const liveInput = document.getElementById("liveInput");
+        const liveResultText = document.getElementById("liveResultText");
+
+        liveInput.addEventListener('input', function(){
+            liveResultText.innerText = liveInput.value;
+        })
+    </script>
+</body>
+
+</html>

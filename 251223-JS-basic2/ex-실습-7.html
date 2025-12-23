@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="nameInput" placeholder="이름을 입력하세요">
+    <button id="greetBtn">인사하기</button>
+    <button id="alertBtn">알림창(Alert) 버전</button>
+    <h2 id="resultText">결과가 여기에 나옵니다.</h2>
+
+    <script>
+        const input = document.getElementById('nameInput');
+        const btn = document.getElementById('greetBtn');
+        const result = document.getElementById('resultText');
+        const alertBtn = document.getElementById('alertBtn');
+
+        btn.addEventListener('click', function () {
+            const userName = input.value;
+            if (userName !== "") {
+                result.innerText = userName + "님, 환영합니다!";
+                input.value = "";
+            }
+        });
+        alertBtn.addEventListener('click', function () {
+            const userName = input.value;
+
+            if (userName === "") {
+                alert("이름을 꼭 입력해주세요!");
+            } else {
+                alert(userName + "님 안녕하세요!");
+                input.value = "";
+            }
+        });
+    </script>
+</body>
+
+</html>
