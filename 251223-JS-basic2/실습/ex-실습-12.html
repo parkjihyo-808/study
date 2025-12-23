@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 실습12
+장바구니 목록 화면에 보여주기
+
+**목표:**
+지금은 `alert`창으로만 목록을 확인하고 있습니다. 
+이제는 실제 쇼핑몰처럼 **화면에 리스트(`li`)가 추가되도록** 만들어보세요.
+
+**힌트:**
+HTML 내용을 바꿀 때 쓰는 `innerHTML` 속성을 활용하면 편합니다.
+`ul태그.innerHTML += "<li>" + 상품명 + "</li>";`
+
+#### HTML 구조 (복사해서 준비하세요)
+
+```html -->
+    <h1>실습 12 </h1>
+    <input type="text" id="itemInput" placeholder="사고 싶은 물건">
+    <button id="newBtn">담기</button>
+    <ul id="itemList"></ul>
+
+
+    <!-- #### 문제 (JavaScript 작성)
+
+    1. 기존 `cart` 배열에 `push` 하는 코드는 그대로 둡니다.
+    2. `itemList`(`ul` 태그)를 변수에 저장하세요.
+    3. 새로운 버튼 추가 (newBtn)(버튼명: 뉴버튼)을 누르면 `alert` 대신,
+    `itemList`의 **`innerHTML`**에
+    새로운 `<li>` 태그를 **추가(`+=`)** 하세요. -->
+    <script>
+        // 순서1 배열을 생성
+        let cart = [];
+        // <input type="text" id="itemInput" placeholder="사고 싶은 물건">
+        // <button id="newBtn">담기</button>
+        // <ul id="itemList"></ul>
+
+        // 순서2 , 요소 선택하기. 
+        const itemInput = document.getElementById("itemInput");
+        const newBtn = document.getElementById("newBtn");
+        const itemList = document.getElementById("itemList");
+
+        // 순서3, 이벤트, 리스너 적용하기. 
+        // itemList`의 **`innerHTML`**에
+        // 새로운 `<li>` 태그를 **추가(`+=`)** 하세요.
+        newBtn.addEventListener('click', function () {
+            // 순서4, 값 가져오기 
+            const item = itemInput.value
+            // 순서5, 기존 코드 재사용. 
+             if (item !== "") {                 
+                // 순서6 배열에 추가 
+                cart.push(item); // 2. 배열에 추가하기 (핵심!)
+
+                // 확인용 알림 (현재 담긴 목록 전체를 보여줌)
+                // alert("현재 장바구니: " + cart);
+                // 순서7, 화면 HTML 에 추가 핵심!!!!
+                itemList.innerHTML += "<li>" + item + "</li>";
+
+                itemInput.value = ""; // 3. 입력창 비우기
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
