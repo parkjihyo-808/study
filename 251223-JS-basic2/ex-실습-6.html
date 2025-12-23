@@ -8,19 +8,49 @@
 </head>
 
 <body>
-    <input type="text" id="nameInput" placeholder="이름을 입력하세요">
-    <button id="greetBtn">입력 완료</button>
-    <h2 id="resultText">여기에 이름이 표시됩니다.</h2>
-    
+    <!-- 정답 -->
+    <input type="password" id="passInput" value="mypassword123">
+    <button id="viewBtn">비밀번호 보기</button>
     <script>
-        const nameInput = document.getElementById('nameInput');
-        const greetBtn = document.getElementById('greetBtn');
-        const resultText = document.getElementById('resultText');
+        // 1. `input`과 `button`을 변수(상수)에 저장하세요
+        const passInput = document.getElementById("passInput");
+        const viewBtn = document.getElementById("viewBtn");
 
-        greetBtn.addEventListener('click', function () {
-            const name = nameInput.value;
-            resultText.innerText = "반갑습니다, " + name + "님!";
-        });
+        // 2. 현재 비밀번호가 보이는지 안 보이는지 기억할 변수(상태변수!!!) 
+        // `isVisible`을 만들고 `false`(안 보임)로 시작하세요.
+        let isVisible = false;
+
+        // 3. 버튼을 클릭하면:
+        // * 만약 `isVisible`이 `false`라면 (현재 안 보이면):
+        // * `input`의 `type` 속성을 `"text"`로 바꾸세요. (힌트: `요소.type = "text"`)
+        // * 버튼 글자를 "비밀번호 숨기기"로 바꾸세요.
+        // * `isVisible`을 `true`로 업데이트하세요.
+        // 2. 버튼에 '경비원(리스너)' 붙이기\
+        //요소.addEventListener('어떤사건', 할일_함수);
+        viewBtn.addEventListener('click',
+            function () {
+                if (isVisible === false) {
+                    // * `input`의 `type` 속성을 `"text"`로 바꾸세요. 
+                    //(힌트: `요소.type = "text"`)
+                    passInput.type = "text";
+                    //버튼 글자를 "비밀번호 숨기기"로 바꾸세요.
+                    viewBtn.innerText = "비밀번호 숨기기"
+                    //* `isVisible`을 `true`로 업데이트하세요.
+                    isVisible = true;
+                } // if 닫기
+
+                // * 아니라면 (`true`, 현재 보이면):
+                else {
+                    // * `input`의 `type` 속성을 다시 `"password"`로 바꾸세요.
+                    passInput.type = "password";
+                    // * 버튼 글자를 "비밀번호 보기"로 바꾸세요.
+                    viewBtn.innerText = "비밀번호 보기"
+                    // * `isVisible`을 `false`로 업데이트하세요.
+                    isVisible = false;
+
+                } // else 닫기 
+            } // function 닫기
+        );// addEventListener 닫기
     </script>
 </body>
 
