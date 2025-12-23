@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="nameInput" placeholder="이름을 입력하세요">
+    <button id="greetBtn">입력 완료</button>
+    <h2 id="resultText">여기에 이름이 표시됩니다.</h2>
+    
+    <script>
+        const nameInput = document.getElementById('nameInput');
+        const greetBtn = document.getElementById('greetBtn');
+        const resultText = document.getElementById('resultText');
+
+        greetBtn.addEventListener('click', function () {
+            const name = nameInput.value;
+            resultText.innerText = "반갑습니다, " + name + "님!";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 문제 주어진 html 코드 내용 -->
+    <input type="text" id="nameInput" placeholder="이름을 입력하세요">
+    <button id="greetBtn">입력 완료</button>
+
+    <h2 id="resultText">여기 인사말이 나옵니다.</h2>
+    <script>
+        // 정답
+        // myInput -> 케멀케이스 -> 낙타 등처럼
+        //-> 단어와 단어사이에, 2번짹 시작 단어를 대문자로 사용하는 방식
+
+        // 1. `input`, `button`, `h2` 세 가지 요소를 모두 변수에 저장하세요. 
+        // (`getElementById` 사용)
+        const myInput = document.getElementById("nameInput");
+        const myBtn = document.getElementById("greetBtn");
+        const myResult = document.getElementById("resultText");
+
+        //  2. ** 버튼 ** 을 클릭했을 때 실행될 함수를 만드세요. 
+        // (`addEventListener` 사용)
+        //요소.addEventListener('어떤사건', 할일_함수);
+        myBtn.addEventListener('click', function () {
+            // 3. 클릭하면 ** 입력창(`input`)에 적힌 내용 ** 을 가져오세요. 
+            // (힌트: `.value` 사용)
+            let userName = myInput.value
+
+            // 4. 가져온 내용을 이용해 `h2` 태그의 ** 글자(`innerText`) ** 를
+            //     `"반갑습니다, [이름]님!"`으로 바꾸세요.
+            //         문자열 + 문자열 = 문자열
+            // 1
+            // myResult.innerText = "반갑습니다, [이름]님!"
+            // 2
+            // myResult.innerText = "반갑습니다, " + [이름] + "님!"
+            // 3
+            myResult.innerText = "반갑습니다, " + userName + "님!"
+
+            // 5. 옵션으로, 글작 색상 변경.
+            myResult.style.color = "blue";
+
+        });
+    </script>
+</body>
+
+</html>
