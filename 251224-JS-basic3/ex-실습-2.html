@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- **목표:**
+객체 안에는 문자나 숫자뿐만 아니라 **배열(Array)**도 들어갈 수 있습니다.
+개발자 프로필 객체 안에 있는 **기술 스택(skills)** 배열을 화면에 예쁘게 보여주세요.
+
+#### HTML 구조 -->
+
+    <h1>실습2</h1>
+    <div id="profileCard"></div>
+
+    <!--
+#### 문제 (JavaScript 작성)
+1. 아래 `developer` 객체를 사용하세요.
+2. `skills`는 배열이므로, 그냥 출력하면 `HTML,CSS,JS` 처럼 나옵니다.
+* **힌트:** `${developer.skills.join(' / ')}`를 쓰면
+`HTML / CSS / JS` 처럼 멋지게 나옵니다.
+3. `isLeader`가 `true`면 "팀장", `false`면 "팀원"으로 출력하세요. (삼항 연산자 활용) -->
+    <script>
+        const developer = {
+            name: "박지효",
+            role: "웹 개발자",
+            skills: ["HTML", "CSS", "JavaScript"],
+            isLeader: true
+        };
+
+        const card = document.getElementById('profileCard');
+        card.innerHTML = `
+<h2>이름 : ${developer.name}</h2>
+<p>직업 : ${developer.role}</p>
+<p>기술 : ${developer.skills.join(' / ')}</p>
+<p>직책 : ${developer.isLeader ? "팀장" : "팀원"}</p>
+
+`
+    </script>
+</body>
+
+</html>

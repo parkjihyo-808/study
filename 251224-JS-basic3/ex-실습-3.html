@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="postBox"></div>
+    <button id="likeBtn">좋아요 누르기</button>
+    <!-- #### 문제 (JavaScript 작성) -->
+
+    <!-- 1. `post` 객체를 만듭니다: `{ title: "오늘의 일기", likes: 0 }`
+2. 처음 화면에 제목과 좋아요 수를 보여줍니다.
+3. 버튼을 클릭하면:
+* 객체의 `likes` 숫자를 1 올립니다. (`post.likes++`)
+* **중요:** 숫자가 올랐으니
+`innerHTML`을 **다시 한 번 실행**해서 화면을 업데이트해줍니다.
+(복사 붙여넣기 하면 됩니다) -->
+    <script>
+        let post = {
+            title: "오늘의 일기",
+            likes: 0
+        }
+        const postBox = document.getElementById("postBox");
+        const likeBtn = document.getElementById("likeBtn");
+
+        // 화면을 그리는 코드를 함수로 만들어서, 재사용하기.
+        function render() {
+            postBox.innerHTML = `
+<h3>제목 : ${post.title}</h3>
+<p>좋아요 : ${post.likes}개</p>
+`
+        }
+        // 처음 실행시 화면 그리기
+        render();
+
+        // 버튼을 클릭하면, 좋아요 카운트, 화면을 다시 그리는 함수를 생성하면서,
+        likeBtn.addEventListener('click', function () {
+            post.likes++; // 버튼 클릭 할 때마다, 카운트가 증가 1,2,3,.. 단순증가로 구성.
+            // 데이터 변경이 발생해서, 화면을 갱신.
+            // render() 함수를 이용.
+            render()
+        })
+
+    </script>
+</body>
+
+</html>
