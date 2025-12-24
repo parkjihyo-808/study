@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>여행지 버킷리스트</h2>
+    <div id="travel-list" style="display: flex;"></div>
+
+    <script>
+        const places = [
+            { city: "상하이", img: "상하이.jpg" },
+            { city: "스위스", img: "스위스.jpg" },
+            { city: "태국", img: "태국.jpg" }
+        ];
+        const travelContainer = document.getElementById('travel-list');
+        places.forEach(function(item) {
+            travelContainer.innerHTML += `<img src="${item.img}" style="width: 200px;">`;
+        });
+    </script>
+</body>
+
+</html>
