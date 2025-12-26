@@ -71,9 +71,25 @@ function render(dataArray) {
 // 방법2 
 // tailwind 버전, 코드는 그대로, css 만 변경이 됨. 
 dataArray.forEach(function(todo) {
+    //순서19 
+// 1 조건부 렌더링 추가.
+//todo.done ? 참일때 실행될 문장 : 거짓일때 실행될 문장
+const textStyle = todo.done ? "line-through text-gray-400" : "text-gray-700"
+
+// 2 체크박스의 상태 결정
+const checked = todo.done ? "checked" : "";
+// 3 체크박스 input 태그 추가 
+
+// 4   <span class="${textStyle}">${todo.text}</span>
         listContainer.innerHTML += `
             <li class="flex justify-between items-center p-4 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition">
-                <span class="text-gray-700 font-medium">${todo.text}</span>
+            
+            <input type="checkbox" ${checked} 
+				onclick="toggleTodo(${todo.id})"
+				class="w-5 h-5 cursor-pointer accent-blue-500"
+				>
+
+                <span class="${textStyle}">${todo.text}</span>
                 
                 <div class="flex gap-2">
                     <button onclick="updateTodo(${todo.id})" 
@@ -106,7 +122,9 @@ function addTodo() {
     const newTodo = {
         // id , 각 todo마다 고유값을 날짜 형식으로 지정. 
         id: Date.now(),
-        text: input.value
+        text: input.value,
+        //순서18 
+		done: false // 핵심. 상태변수 매우 많이 사용됨. 
     }
 
     // 새로운 할일, 배열에 추가 
@@ -271,6 +289,19 @@ searchBtn.addEventListener('click', function(){
 })
 
 
+// 순서20
+// 체크 박스를 누를 때마다, true, false 뒤집어주는 함수 생성. 
 
+// 완료 상태 토글하는 기능. 
 
-
+function toggleTodo(id) {
+  // 1. 해당 id로 변경할 todo 찾기. 
+  const item = todoData.find(todo => todo.id === id);
+  // 2. done 의 조건을 변경. 
+  if(item) { // 체크해제 할 대상 todo가 있다면, 
+    item.done = !item.done; // true -> false , false -> true 효과
+	save(); 
+	render(todoData);
+  }
+  
+}

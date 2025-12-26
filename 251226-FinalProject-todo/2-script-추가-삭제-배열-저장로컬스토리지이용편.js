@@ -135,7 +135,7 @@ function save() {
 // }
 
 
-// 순서9
+순서9
 // 삭제 후, 로컬 스토리지에 저장,
 // function deleteTodo(id) {
 //     // ... (기존 코드)
