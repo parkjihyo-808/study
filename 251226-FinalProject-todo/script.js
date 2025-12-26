@@ -1,0 +1,71 @@
+//1 필요한 요소 선택. 
+const input = document.getElementById('taskInput');
+// btn -> addBtn , 변경
+const addBtn = document.getElementById('addBtn');
+// list -> listContainer, 변경
+const listContainer = document.getElementById('taskList');
+
+// 251226- 8일차 작업 진행. 
+
+// 순서1
+// 데이터 저장할 저장소 배열 만들기. 
+let todoData = [];
+
+// 순서2
+// 그리기 함수 정의 - 함수명은 보통 소문자 시작. 
+function render(dataArray) {
+
+  //항상 기본, 데이터를 모두 삭제하고 시작한다. 
+  // 기존 내용을 다 지우고,
+  listContainer.innerHTML = "";
+
+  //  새로 요소를 그릴 예정. 새로고침 효과.
+  // 기반이 데이터를 중심으로 한다. 그 데이터는 배열에 들어있다. 
+  //  배열과, 반복문을 같이 사용하는 함수 소개. forEach(function(){}), 이 기법사용.
+  todoData.forEach( function(todo) {
+	 listContainer.innerHTML += `
+    <li>
+	  <span>${todo.text}<span>
+	  <div>
+		<button class="edit-btn" onclick="updateTodo(${todo.id})">
+		  수정
+		</button>
+		<button class="del-btn" onclick="deleteTodo(${todo.id})">
+		  삭제
+		</button>
+	  </div>
+	</li>
+  `
+  } // forEach닫는 태그 
+  )  //render 닫는 태그 
+ 
+} //render 닫는 태그 
+
+// 추가, 삭제하는 로직을 배열 형식으로 작업방법으로 변경. 
+
+// 추가 기능 ( 데이터 추가 -> 그리기)
+function addTodo() {
+    // 할일 입력창에, 문자열이 없는 경우, 경고창을 띄우기 
+    if(input.value === "") {
+        alert("내용을 필수로 입력해주세요.");
+        return; // addTodo 함수를 중단하기. 
+    }
+
+    // 비어있지않다. 즉, 할일 내용이 있다. 
+    const newTodo = {
+        // id , 각 todo마다 고유값을 날짜 형식으로 지정. 
+        id: Date.now(),
+        text: input.value
+    }
+
+    // 새로운 할일, 배열에 추가 
+    todoData.push(newTodo); // 1 데이터 배열 추가(배열에 맨뒤로)
+    render(todoData); // 2 화면을 다시 그리기
+    input.value = ""; // 3 입력창 비우기 
+
+}
+
+// 추가 기능 이벤트 연결 
+// 추가 버튼 클릭 , 리스너(경비원)에게 감지가 된다면,
+// 리스너는 , 실행 할 함수 : addTodo
+addBtn.addEventListener('click',addTodo )
