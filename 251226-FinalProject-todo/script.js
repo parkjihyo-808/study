@@ -114,11 +114,11 @@ function deleteTodo(id) {
     }
 }
 
-// 저장하기 (데이터 -> 문자열 변환 -> 저장)
+// 저장하기 (데이터(배열) -> 문자열 변환 -> 저장)
 // 예시)
 // 순서6
 function save() {
-  localStorage.setItem('myTodos', JSON.stringfy(todoData));
+  localStorage.setItem('myTodos', JSON.stringify(todoData));
 }
 
 // 불러오기 
@@ -158,3 +158,47 @@ function save() {
 // 순서11
 // 불러온 데이터 그리기, 
 // render(todoData)
+
+// 순서13
+// 수정 기능 구현. 
+// 삭제와 비슷함, 
+// 1)배열에서, 수정할 id로 해당 todo를 찾아서, 
+// 2)해당 내용을 수정하기. 
+// 3)그리고, 저장, 
+// 4)다시 그리기  
+function updateTodo(id) {
+  const item = todoData.find(item => item.id ===id); // 수정할 대상 찾기 
+// 삭제 처럼, 예시를들어서 보여주기. 
+  // 예시)       인덱스   0       1       2
+        // 가정)  id     0        1      2
+        // todoData = ["사과","바나나", "딸기"]
+        // find: 수정할 id 가, 현재 배열에서 찾아서, 찾은 요소를 가져오는 기능. 
+        
+        // item : todoData 배열의 요소를 하나씩 꺼내서 담기. 
+        // 수정할 요소의 인덱스 : 1(바나나, id : 1)
+        // 반복1
+        // item : 사과, => item.id(사과 id : 0) === (id: 1) 달라서, 거짓. 사과 대상이 아님
+        // 반복2
+        // item : 바나나, => item.id(바나나 id : 1) === (id: 1) 같다, 참. 바나나 대상이 맞다.
+        // 반복3
+        // item : 딸기, => item.id(딸기 id : 2) === (id: 1) 달라서, 거짓. 딸기 대상이 아님
+        // 결론, 
+        // item , 찾고자하는 대상, 바나나가 선택이 됩니다. 
+
+        //item.text : 기존 내용, 바나나가 불러오고
+        // newText : 변경할 내용 : 바나나 수정
+        // newText : "     바나나 수정     "
+        // newText.trim() : "바나나 수정", 양쪽 공백을 다제거.
+  const newText = prompt("내용을 수정하세요: ", item.text);
+  
+  // 기본 유효성 체크, 
+  // newText !== null : 객체 비어 있으면 안됨.
+  // newText.trim() : 내용의 양쪽 공백을 모두 제거 후, 빈문자열이 아니여야 한다. 
+  // 그러면, 수정할게.!
+  if(newText !== null && newText.trim() !== "" ) {
+    item.text = newText ; // 내용 변경 
+	save(); // 저장 
+	render(todoData); //  다시 그리기. 
+  }
+  
+}
