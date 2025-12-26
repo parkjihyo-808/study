@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>골드 투두 앱</title>
+    <script src="script.js" defer></script>
+    
+    <style>
+         body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: 0 auto; }
+        .input-group { margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px;}
+        input { padding: 8px; width: 60%; }
+        button { padding: 8px; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 10px; }
+        
+        /* 검색창 스타일 */
+        #searchBox { width: 100%; margin-bottom: 10px; background-color: #f0f8ff; }
+    </style>
+
+</head>
+
+<body>
+    <h2> 나의 할 일 목록</h2>
+    <h3>검색</h3>
+    <!-- 순서14 -->
+    <input type="text" id="searchBox" placeholder="할 일 검색">
+    <button id="searchBtn">검색하기</button>
+
+    <h3>입력하기</h3>
+
+    <input type="text" id="taskInput" placeholder="할 일을 적으세요">
+
+    <button id="addBtn">추가하기</button>
+
+    <ul id="taskList">
+</body>
+
+</html>
