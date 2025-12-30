@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <header>
+        <h1>나의 서비스</h1>
+    </header>
+    <aside>
+        <p>메뉴 영역</p>
+    </aside>
+
+    <main>
+        <section>
+            <h2>좋아요 버튼</h2>
+            <button id="btn">좋아요 👍</button>
+            <p>개수: <span id="num">0</span></p>
+        </section>
+    </main>
+
+
+    <script>
+        let count = 0;
+        // [이벤트 1] 버튼 누르면 숫자 증가
+        document.getElementById('btn').onclick = function () {
+            count = count + 1;
+            document.getElementById('num').innerText = count;
+        };
+    </script>
+</body>
+
+</html>
